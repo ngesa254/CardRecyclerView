@@ -1,6 +1,6 @@
 # CardRecyclerView
 
-Getting Started With RecyclerView and CardView on Android
+Getting Started With RecyclerView and CardView on Android 🚀🚀
 
 # Support
 
