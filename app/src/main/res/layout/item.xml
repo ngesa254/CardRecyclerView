@@ -9,9 +9,6 @@
     android:layout_height="100dp"
     android:id="@+id/cv">
 
-
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,6 +31,8 @@
             android:layout_toRightOf="@+id/slot_photo"
             android:layout_alignParentTop="true"
             android:textSize="30sp"
+            android:elevation="2dp"
+            android:background="@drawable/myrect"
             />
 
         <TextView
