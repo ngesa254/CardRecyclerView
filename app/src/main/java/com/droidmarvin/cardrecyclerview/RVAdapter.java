@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> {
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
@@ -26,10 +28,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         }
     }
 
-    List<Person> persons;
+    List<Slot> slots;
 
-    RVAdapter(List<Person> persons){
-        this.persons = persons;
+    RVAdapter(List<Slot> slots){
+        this.slots = slots;
     }
 
     @Override
@@ -46,13 +48,13 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
     @Override
     public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
-        personViewHolder.slotName.setText(persons.get(i).name);
-        personViewHolder.slotStatus.setText(persons.get(i).age);
-        personViewHolder.slotPhoto.setImageResource(persons.get(i).photoId);
+        personViewHolder.slotName.setText(slots.get(i).name);
+        personViewHolder.slotStatus.setText(slots.get(i).status);
+        personViewHolder.slotPhoto.setImageResource(slots.get(i).photoId);
     }
 
     @Override
     public int getItemCount() {
-        return persons.size();
+        return slots.size();
     }
 }
