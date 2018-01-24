@@ -1,5 +1,6 @@
 package com.droidmarvin.cardrecyclerview;
 
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -14,10 +16,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
 
-        CardView cv;
-        TextView slotName;
-        TextView slotStatus;
-        ImageView slotPhoto;
+        public CardView cv;
+        public TextView slotName;
+       public TextView slotStatus;
+        public ImageView slotPhoto;
 
         PersonViewHolder(View itemView) {
             super(itemView);
@@ -28,10 +30,18 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
         }
     }
 
-    List<Slot> slots;
+//    List<Slot> slots;
+//
+//    RVAdapter(List<Slot> slots){
+//        this.slots = slots;
+//    }
 
-    RVAdapter(List<Slot> slots){
-        this.slots = slots;
+    List<Slot> slots;
+    Context context;
+
+    RVAdapter(List<Slot> slots,Context context){
+        this.slots=slots;
+        this.context=context;
     }
 
     @Override
@@ -47,10 +57,24 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(PersonViewHolder personViewHolder, int i) {
+    public void onBindViewHolder(PersonViewHolder personViewHolder, final int i) {
         personViewHolder.slotName.setText(slots.get(i).name);
         personViewHolder.slotStatus.setText(slots.get(i).status);
         personViewHolder.slotPhoto.setImageResource(slots.get(i).photoId);
+
+//        personViewHolder.slotPhoto.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(context, "Index position is: "+ slots.get(i).photoId, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+        personViewHolder.slotName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Index position is: "+slots.get(i).name, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

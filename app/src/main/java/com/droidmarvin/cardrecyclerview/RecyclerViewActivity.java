@@ -1,6 +1,7 @@
 package com.droidmarvin.cardrecyclerview;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +17,7 @@ import java.util.List;
 public class RecyclerViewActivity extends Activity {
 
     private List<Slot> slots;
+    private Context context;
     private RecyclerView rv;
 
     @Override
@@ -45,7 +47,9 @@ public class RecyclerViewActivity extends Activity {
     }
 
     private void initializeAdapter(){
-        RVAdapter adapter = new RVAdapter(slots);
+        RVAdapter adapter;
+        adapter = new RVAdapter(slots, context);
         rv.setAdapter(adapter);
     }
+//List<Slot> slots
 }
