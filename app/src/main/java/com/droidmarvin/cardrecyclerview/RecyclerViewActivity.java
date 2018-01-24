@@ -48,7 +48,8 @@ public class RecyclerViewActivity extends Activity {
 
     private void initializeAdapter(){
         RVAdapter adapter;
-        adapter = new RVAdapter(slots, context);
+//        adapter = new RVAdapter(slots, context);
+        adapter = new RVAdapter(slots);
         rv.setAdapter(adapter);
     }
 //List<Slot> slots
